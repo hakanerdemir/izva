@@ -58,21 +58,6 @@ print(mod2)
 
 ```
 
-**Mod (Mode)**
-```{r echo=FALSE}
-# Create the function.
-getmode <- function(v) {
-   uniqv <- unique(v)
-   uniqv[which.max(tabulate(match(v, uniqv)))]
-}
-# Create the vector with numbers.
-v <- c(veri$height)
-# Calculate the mode using the user function.
-mod <- getmode(v)
-print(mod)
-```
-
-
 **Yüzde değer (Percentile)**
 ```{r}
 quantile(veri$height, c(.32, .57, .98))
