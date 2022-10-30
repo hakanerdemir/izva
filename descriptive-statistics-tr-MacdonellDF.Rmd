@@ -47,20 +47,29 @@ getmode <- function(v) {
    uniqv[which.max(tabulate(match(v, uniqv)))]
 }
 # Create the vector with numbers.
-v <- c(veri$height)
+v1 <- c(veri$height)
+v2 <- c(veri$finger)
 # Calculate the mode using the user function.
-mod <- getmode(v)
-print(mod)
+mod1 <- getmode(v1)
+mod2 <- getmode(v2)
+
+print(mod1)
+print(mod2)
+
 ```
 
 **Yüzde değer (Percentile)**
 ```{r}
 quantile(veri$height, c(.32, .57, .98))
+quantile(veri$finger, c(.32, .57, .98))
+
 ```
 
 **Çeyrek değer (Quartile)**
 ```{r}
 quantile(veri$height)
+quantile(veri$finger)
+
 ```
 
 **Değişim aralığı (Range)**
@@ -68,21 +77,30 @@ quantile(veri$height)
 range(veri$height)
 aralik <- max(veri$height) - min(veri$height)
 print(aralik)
+
+range(veri$finger)
+aralik1 <- max(veri$finger) - min(veri$finger)
+print(aralik1)
 ```
 
 **Çeyrekler arası değişim aralığı (Interquartile range)**
 ```{r}
 IQR(veri$height)
+IQR(veri$finger)
+
 ```
 
 **Varyans (Variance)**
 ```{r}
 var(veri$height)
+var(veri$finger)
+
 ```
 
 **Standart sapma (Standard deviation)**
 ```{r echo=FALSE}
 sd(veri$height)
+sd(veri$finger)
 ```
 
 **Değişkenlik katsayısı (Coefficient of variation)**
@@ -91,41 +109,57 @@ sd(veri$height)
 getdk <- function(d) {
    k <- 100*(sd(d)/mean(d))
 }
-d <- c(veri$height)
-dk <- getdk(d)
-print(dk)
+d1 <- c(veri$height)
+dk1 <- getdk(d1)
+print(dk1)
+
+d2 <- c(veri$finger)
+dk2 <- getdk(d2)
+print(dk2)
 ```
 
 **Çarpıklık (Skewness)**
 ```{r}
 skewness(veri$height)
+skewness(veri$finger)
 ```
 
 **z Değeri (z-Value)**
 ```{r}
 zscore(veri$height)
+zscore(veri$finger)
+
 ```
 
 **Frekans (Frequency)**
 ```{r}
 hist(veri$height,plot = FALSE)
 hist(veri$height)
+
+hist(veri$finger,plot = FALSE)
+hist(veri$finger)
 ```
 
 **Stem-and-Leaf Plot**
 ```{r}
 stem(veri$height)
+stem(veri$finger)
 ```
 
 **Plot**
 ```{r}
 plot(veri$height[1:100],ylim=c(0,200))
 abline(h = c(mean(veri$height),mean(veri$height)+sd(veri$height),mean(veri$height)-sd(veri$height),mean(veri$height)+2*sd(veri$height),mean(veri$height)-2*sd(veri$height)), col = c("red", "blue", "blue", "green", "green"))
+
+plot(veri$finger[1:100],ylim=c(0,200))
+abline(h = c(mean(veri$finger),mean(veri$finger)+sd(veri$finger),mean(veri$finger)-sd(veri$finger),mean(veri$finger)+2*sd(veri$finger),mean(veri$finger)-2*sd(veri$finger)), col = c("red", "blue", "blue", "green", "green"))
 ```
 
 **Box plot**
 ```{r}
 boxplot(veri$height, horizontal=TRUE)
+boxplot(veri$finger, horizontal=TRUE)
+
 ```
 
 **Kovaryans**
