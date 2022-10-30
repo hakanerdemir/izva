@@ -23,8 +23,8 @@ theme_set(theme_classic())
 *Kullanılan veri kümesi*
 ```{r}
 veri <- read.csv('MacdonellDF.csv')
-head(10)
-summary(veri)
+veri
+#summary(veri)
 ```
 
 **Ortalama (Mean)**
